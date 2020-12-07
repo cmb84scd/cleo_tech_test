@@ -38,12 +38,11 @@ class VendingMachine
 
   def change_required
     change = @amount_paid - product_price.values[0]
-    if change > 0
-      @products.products.delete(product)
+    @products.products.delete(product)
+    if change.positive?
       @money.coins[change] -= 1
       "#{change}p change and here is your #{@product}"
     else
-      @products.products.delete(product)
       "Here is your #{@product}"
     end
   end
@@ -58,6 +57,6 @@ class VendingMachine
   private
 
   def product_price
-    show_products.select {|k, v| k == @product}
+    show_products.select { |k, _v| k == @product }
   end
 end
