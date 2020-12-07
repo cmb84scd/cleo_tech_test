@@ -1,16 +1,19 @@
-require 'product'
-
 class VendingMachine
-  attr_reader :product, :amount_paid, :products
+  attr_reader :product, :amount_paid, :products, :money
 
-  def initialize(products = Product.new)
+  def initialize(products = Product.new, money = Money.new)
     @product = nil
     @amount_paid = nil
     @products = products
+    @money = money
   end
 
   def show_products
     @products.products
+  end
+
+  def show_coins
+    @money.coins
   end
 
   def select_product
@@ -21,20 +24,27 @@ class VendingMachine
   def insert_money
     puts 'Please insert coins.'
     @amount_paid = gets.chomp.to_i
+    @money.coins[@amount_paid] += 1
   end
 
   def check_amount
     while @amount_paid < product_price.values[0] do
       puts 'Not enough money paid, please insert another coin.'
-      @amount_paid += gets.chomp.to_i
+      amount = gets.chomp.to_i
+      @money.coins[amount] += 1
+      @amount_paid += amount
     end
   end
 
   def change_required
-    if @amount_paid > product_price.values[0]
-      "#{@amount_paid - product_price.values[0]}p change and #{@product}"
+    change = @amount_paid - product_price.values[0]
+    if change > 0
+      @products.products.delete(product)
+      @money.coins[change] -= 1
+      "#{change}p change and here is your #{@product}"
     else
-      @product
+      @products.products.delete(product)
+      "Here is your #{@product}"
     end
   end
 
