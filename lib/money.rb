@@ -6,6 +6,6 @@ class Money
   end
 
   def add(coin, quantity)
-    @coins[coin.to_i] = quantity.to_i
+    @coins[coin] = quantity
   end
 end

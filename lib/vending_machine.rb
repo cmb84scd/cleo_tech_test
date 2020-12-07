@@ -8,11 +8,11 @@ class VendingMachine
     @money = money
   end
 
-  def show_products
+  def view_products
     @products.products
   end
 
-  def show_coins
+  def view_coins
     @money.coins
   end
 
@@ -57,6 +57,6 @@ class VendingMachine
   private
 
   def product_price
-    show_products.select { |k, _v| k == @product }
+    view_products.select { |k, _v| k == @product }
   end
 end

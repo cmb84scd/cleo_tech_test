@@ -6,6 +6,6 @@ class Product
   end
 
   def add(item, price)
-    @products[item.to_sym] = price.to_i
+    @products[item.to_sym] = price
   end
 end
