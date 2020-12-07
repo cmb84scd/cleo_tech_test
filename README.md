@@ -26,6 +26,21 @@ As a user
 I would like to know if I need to insert more money
 and to receive change if I insert too much
 ```
+```
+As a vendor
+I would like the vending machine to come pre-loaded
+with products and coins
+```
+```
+As a vendor
+I would like to be able to reload the machine
+with products and coins as required
+```
+```
+As a vendor
+I would like the machine to keep track
+of what products and coins it holds
+```
 
 ### Diagrams
 ##### Domain model
@@ -35,3 +50,5 @@ and to receive change if I insert too much
 | | select_product |
 | | insert_money |
 | | vend |
+| Product | add |
+| Coins | add |
