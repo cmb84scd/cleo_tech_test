@@ -1,0 +1,29 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/cmb84scd/projects/cleo_tech_test/spec/vending_machine_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/cmb84scd/projects/cleo_tech_test/lib/vending_machine.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1607352166
+  }
+}
