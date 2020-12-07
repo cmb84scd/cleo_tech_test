@@ -7,16 +7,26 @@ class VendingMachine
   end
 
   def show_products
-    { 'crisps' => 0.40, 'chocolate' => 0.50, 'water' => 1.00 }
+    { crisps: 0.40, chocolate: 0.50, water: 1.00 }
   end
 
   def select_product
     puts 'What product would you like?'
-    @product = gets.chomp
+    @product = gets.chomp.to_sym
   end
 
   def insert_money
     puts 'Please insert coins.'
     @amount_paid = gets.chomp.to_f
+  end
+
+  def vend
+    select_product
+    insert_money
+    product_price = show_products.select {|k, v| k == @product}
+    while @amount_paid < product_price.values[0] do
+      puts 'Not enough money paid, please insert another coin.'
+      @amount_paid += gets.chomp.to_f
+    end
   end
 end
