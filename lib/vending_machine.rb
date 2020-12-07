@@ -1,8 +1,9 @@
 class VendingMachine
-  attr_reader :product
+  attr_reader :product, :amount_paid
 
   def initialize
     @product = nil
+    @amount_paid = nil
   end
 
   def show_products
@@ -12,5 +13,10 @@ class VendingMachine
   def select_product
     puts 'What product would you like?'
     @product = gets.chomp
+  end
+
+  def insert_money
+    puts 'Please insert coins.'
+    @amount_paid = gets.chomp.to_f
   end
 end
