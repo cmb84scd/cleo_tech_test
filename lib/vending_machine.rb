@@ -1,13 +1,16 @@
-class VendingMachine
-  attr_reader :product, :amount_paid
+require 'product'
 
-  def initialize
+class VendingMachine
+  attr_reader :product, :amount_paid, :products
+
+  def initialize(products = Product.new)
     @product = nil
     @amount_paid = nil
+    @products = products
   end
 
   def show_products
-    { crisps: 40, chocolate: 50, water: 100 }
+    @products.products
   end
 
   def select_product

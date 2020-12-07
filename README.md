@@ -28,7 +28,7 @@ and to receive change if I insert too much
 ```
 ```
 As a vendor
-I would like the vending machine to come pre-loaded
+I would like to initialize the vending machine
 with products and coins
 ```
 ```
